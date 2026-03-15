@@ -163,12 +163,92 @@ nav {
 .hero-visual {
   position: relative;
 }
-.hero-card {
-  background: var(--white);
+
+/* Hero screenshot */
+.hero-screenshot-wrap {
+  position: relative;
+}
+.hero-screenshot-label {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 600; color: var(--g2);
+  background: var(--g6); border: 1px solid var(--g5);
+  padding: 5px 12px; border-radius: 100px; margin-bottom: 12px;
+}
+.hsl-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--g3);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+.hero-screenshot-frame {
+  border-radius: var(--r-xl); overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: var(--r-xl);
   box-shadow: var(--shadow-lg);
-  overflow: hidden;
+  background: var(--white);
+  line-height: 0;
+}
+.hero-screenshot-img {
+  width: 100%; height: auto; display: block;
+  border-radius: var(--r-xl);
+}
+.hero-screenshot-badge {
+  position: absolute; bottom: -14px; right: 20px;
+  background: var(--white); border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  border-radius: 100px; padding: 7px 14px;
+  font-size: 12px; font-weight: 600; color: var(--muted);
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* Feature panel screenshot image */
+.fpv-screenshot {
+  width: 100%; height: auto; display: block;
+  border-radius: 0 0 var(--r-lg) var(--r-lg);
+}
+.fp-visual-img {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--r-xl); box-shadow: var(--shadow-md);
+  overflow: hidden; line-height: 0;
+}
+.fp-visual-img img {
+  width: 100%; height: auto; display: block;
+}
+.fpv-img-header {
+  background: var(--g6); padding: 12px 18px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+  line-height: normal;
+}
+.fpv-img-header-icon { font-size: 15px; }
+.fpv-img-header-text { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--g2); }
+
+/* Screenshot gallery section */
+.gallery-section { padding: 88px 0; background: var(--g0); }
+.gallery-section .section-title { color: #fff; }
+.gallery-section .section-sub { color: rgba(255,255,255,0.55); }
+.gallery-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px;
+}
+.gallery-item { position: relative; }
+.gallery-frame {
+  border-radius: var(--r-xl); overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  line-height: 0; background: var(--g1);
+}
+.gallery-frame img { width: 100%; height: auto; display: block; }
+.gallery-caption {
+  margin-top: 14px; display: flex; align-items: center; gap: 10px;
+}
+.gallery-caption-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+  flex-shrink: 0;
+}
+.gallery-caption-title { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.gallery-caption-sub { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+@media (max-width: 760px) {
+  .gallery-grid { grid-template-columns: 1fr; }
 }
 .hc-header {
   background: var(--g1); padding: 16px 20px;
@@ -579,6 +659,7 @@ footer {
   .problem-grid { grid-template-columns: 1fr 1fr; }
   .feature-panel.active { grid-template-columns: 1fr; }
   .fp-visual { display: none; }
+  .fp-visual-img { display: block; }
   .hiw-steps { grid-template-columns: 1fr 1fr; }
   .hiw-steps::before { display: none; }
   .forWho-grid { grid-template-columns: 1fr 1fr; }
@@ -599,6 +680,10 @@ footer {
   .features-tabs { flex-direction: column; }
   .compare-table thead th.highlight::after { display: none; }
   .cta-contact { flex-direction: column; align-items: center; }
+  .gallery-section [style*="grid-template-columns:1fr 1fr 1fr"],
+  .gallery-section [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 /* ─── MOBILE NAV ─────────────────────────────────── */
@@ -674,69 +759,20 @@ footer {
       </div>
 
       <div class="hero-visual animate-up delay-2">
-        <div class="hero-card">
-          <div class="hc-header">
-            <div class="hc-header-title">📦 SupplySarthi Dashboard</div>
-            <div class="hc-dots">
-              <div class="hc-dot" style="background:#ff6b6b;"></div>
-              <div class="hc-dot" style="background:#ffd93d;"></div>
-              <div class="hc-dot" style="background:#6bcb77;"></div>
-            </div>
+        <div class="hero-screenshot-wrap">
+          <div class="hero-screenshot-label">
+            <span class="hsl-dot"></span> Admin Dashboard — Live Preview
           </div>
-          <div class="hc-stats">
-            <div class="hc-stat">
-              <div class="hc-stat-label">Today's Orders</div>
-              <div class="hc-stat-val">24</div>
-            </div>
-            <div class="hc-stat">
-              <div class="hc-stat-label">This Month</div>
-              <div class="hc-stat-val green">₹2.4L</div>
-            </div>
-            <div class="hc-stat">
-              <div class="hc-stat-label">Outstanding</div>
-              <div class="hc-stat-val gold">₹38K</div>
-            </div>
+          <div class="hero-screenshot-frame">
+            <img
+              src="https://media.licdn.com/dms/image/v2/D5612AQHkpZSolN04Nw/article-inline_image-shrink_1000_1488/B56ZzwA4dlJgAQ-/0/1773553289662?e=1775088000&v=beta&t=7zWW338lfXasD87MEwBmoKX0M1bfSiLQtK_VT3ueHt8"
+              alt="SupplySarthi Admin Dashboard"
+              class="hero-screenshot-img"
+              loading="eager"
+            >
           </div>
-          <div class="hc-rows">
-            <div class="hc-row">
-              <div class="hc-row-info">
-                <div class="hc-row-icon">🏭</div>
-                <div>
-                  <div class="hc-row-name">Sharma Traders</div>
-                  <div class="hc-row-sub">Order #3041 · 12 items</div>
-                </div>
-              </div>
-              <div style="text-align:right;">
-                <div class="hc-row-amount cr">₹12,400</div>
-                <span class="badge badge-green">Delivered</span>
-              </div>
-            </div>
-            <div class="hc-row">
-              <div class="hc-row-info">
-                <div class="hc-row-icon">🚚</div>
-                <div>
-                  <div class="hc-row-name">Gupta Packaging</div>
-                  <div class="hc-row-sub">Order #3042 · 7 items</div>
-                </div>
-              </div>
-              <div style="text-align:right;">
-                <div class="hc-row-amount" style="color:var(--gold)">₹8,750</div>
-                <span class="badge badge-yellow">Dispatched</span>
-              </div>
-            </div>
-            <div class="hc-row">
-              <div class="hc-row-info">
-                <div class="hc-row-icon">📦</div>
-                <div>
-                  <div class="hc-row-name">Mehta & Sons</div>
-                  <div class="hc-row-sub">Order #3043 · 18 items</div>
-                </div>
-              </div>
-              <div style="text-align:right;">
-                <div class="hc-row-amount dr">₹21,200</div>
-                <span class="badge badge-red">Pending</span>
-              </div>
-            </div>
+          <div class="hero-screenshot-badge">
+            <span>📦</span> Real product screenshot
           </div>
         </div>
       </div>
@@ -834,19 +870,9 @@ footer {
           <li>One-click reorder — client ki last order repeat karo instantly</li>
         </ul>
       </div>
-      <div class="fp-visual">
-        <div class="fpv-header"><span class="fpv-header-icon">🛒</span><span class="fpv-header-text">Order Tracker</span></div>
-        <div class="fpv-body">
-          <table class="fpv-table">
-            <thead><tr><th>Order ID</th><th>Client</th><th>Amount</th><th>Status</th></tr></thead>
-            <tbody>
-              <tr><td>#3041</td><td>Sharma Traders</td><td>₹12,400</td><td><span class="fpv-status badge-green">Delivered</span></td></tr>
-              <tr><td>#3042</td><td>Gupta Pack.</td><td>₹8,750</td><td><span class="fpv-status badge-yellow">Dispatched</span></td></tr>
-              <tr><td>#3043</td><td>Mehta & Sons</td><td>₹21,200</td><td><span class="fpv-status badge-red">Pending</span></td></tr>
-              <tr><td>#3044</td><td>Singh Retail</td><td>₹5,600</td><td><span class="fpv-status badge-green">Delivered</span></td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="fp-visual-img">
+        <div class="fpv-img-header"><span class="fpv-img-header-icon">🛒</span><span class="fpv-img-header-text">Order Management — Live</span></div>
+        <img src="https://media.licdn.com/dms/image/v2/D5612AQGZzyT0-V6AAw/article-inline_image-shrink_1500_2232/B56ZzwDeBqHoAU-/0/1773553967770?e=1775088000&v=beta&t=4SVqHEBFlZJKREKNmRnmhQiE2CuEad8LYupd1HrPoTs" alt="SupplySarthi Order Section" loading="lazy">
       </div>
     </div>
 
@@ -865,16 +891,9 @@ footer {
           <li>State-wise GST (IGST vs CGST+SGST) automatic calculate</li>
         </ul>
       </div>
-      <div class="fp-visual">
-        <div class="fpv-header"><span class="fpv-header-icon">👥</span><span class="fpv-header-text">Client Profile</span></div>
-        <div class="fpv-body">
-          <div class="fpv-row"><span class="fpv-row-label">Client Name</span><span class="fpv-row-val">Sharma Traders Pvt Ltd</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">GSTIN</span><span class="fpv-row-val">07AAXCS1234F1Z5</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Credit Limit</span><span class="fpv-row-val">₹2,00,000</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Billing Type</span><span class="fpv-row-val">Monthly Invoice</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Delivery Sites</span><span class="fpv-row-val green">3 Sites Active</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Current Balance</span><span class="fpv-row-val red">₹18,400 due</span></div>
-        </div>
+      <div class="fp-visual-img">
+        <div class="fpv-img-header"><span class="fpv-img-header-icon">👥</span><span class="fpv-img-header-text">Client Management — Live</span></div>
+        <img src="https://media.licdn.com/dms/image/v2/D5612AQECrQtItwCD0w/article-inline_image-shrink_1500_2232/B56ZzwC4H3JgAU-/0/1773553812488?e=1775088000&v=beta&t=51lPdxIC_tvOFwEQXe_c9t4ARAG5s3yV3t33dxuWk9c" alt="SupplySarthi Client Section" loading="lazy">
       </div>
     </div>
 
@@ -894,16 +913,9 @@ footer {
           <li>Credit Note aur Debit Note support</li>
         </ul>
       </div>
-      <div class="fp-visual">
-        <div class="fpv-header"><span class="fpv-header-icon">🧾</span><span class="fpv-header-text">GST Invoice Preview</span></div>
-        <div class="fpv-body">
-          <div class="fpv-row"><span class="fpv-row-label">Invoice No.</span><span class="fpv-row-val">INV-2024-4012</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Period</span><span class="fpv-row-val">Nov 1–30, 2024</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Subtotal</span><span class="fpv-row-val">₹42,000</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">CGST 9%</span><span class="fpv-row-val">₹3,780</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">SGST 9%</span><span class="fpv-row-val">₹3,780</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Total Amount</span><span class="fpv-row-val green" style="font-size:16px;">₹49,560</span></div>
-        </div>
+      <div class="fp-visual-img">
+        <div class="fpv-img-header"><span class="fpv-img-header-icon">🧾</span><span class="fpv-img-header-text">GST Invoice — Live</span></div>
+        <img src="https://media.licdn.com/dms/image/v2/D5612AQFr2KvwwoxHDg/article-inline_image-shrink_1000_1488/B56ZzwCYMVKYAQ-/0/1773553682150?e=1775088000&v=beta&t=rdZg5_oUfOK2-2KVXULL6d9GZ1UoCPKokCIfaE7kslU" alt="SupplySarthi Invoice Section" loading="lazy">
       </div>
     </div>
 
@@ -922,19 +934,9 @@ footer {
           <li>Multiple payment modes support — cash, UPI, bank transfer, cheque</li>
         </ul>
       </div>
-      <div class="fp-visual">
-        <div class="fpv-header"><span class="fpv-header-icon">💰</span><span class="fpv-header-text">Client Ledger</span></div>
-        <div class="fpv-body">
-          <table class="fpv-table">
-            <thead><tr><th>Date</th><th>Type</th><th>Debit</th><th>Credit</th><th>Balance</th></tr></thead>
-            <tbody>
-              <tr><td>01 Nov</td><td>Invoice</td><td>₹49,560</td><td>—</td><td>₹49,560</td></tr>
-              <tr><td>08 Nov</td><td>Payment</td><td>—</td><td>₹20,000</td><td>₹29,560</td></tr>
-              <tr><td>15 Nov</td><td>Invoice</td><td>₹12,400</td><td>—</td><td>₹41,960</td></tr>
-              <tr><td>20 Nov</td><td>Payment</td><td>—</td><td>₹30,000</td><td>₹11,960</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="fp-visual-img">
+        <div class="fpv-img-header"><span class="fpv-img-header-icon">💰</span><span class="fpv-img-header-text">Ledger & Payments — Live</span></div>
+        <img src="https://media.licdn.com/dms/image/v2/D5612AQFPqf65ymccZw/article-inline_image-shrink_1500_2232/B56ZzwCqCtH0AU-/0/1773553755210?e=1775088000&v=beta&t=i6NHpqgIxVHfTTsYMJmh7VDL9s8oRMZnUilkVQKa2dQ" alt="SupplySarthi Ledger Section" loading="lazy">
       </div>
     </div>
 
@@ -954,15 +956,9 @@ footer {
           <li>Site-wise order history filter</li>
         </ul>
       </div>
-      <div class="fp-visual">
-        <div class="fpv-header"><span class="fpv-header-icon">🔐</span><span class="fpv-header-text">Client Portal — My Account</span></div>
-        <div class="fpv-body">
-          <div class="fpv-row"><span class="fpv-row-label">Welcome</span><span class="fpv-row-val">Sharma Traders</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Active Orders</span><span class="fpv-row-val green">3 in progress</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Last Invoice</span><span class="fpv-row-val">INV-4012 · ₹49,560</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Amount Due</span><span class="fpv-row-val red">₹11,960</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Quick Action</span><span class="fpv-row-val green" style="cursor:pointer;">🛒 Place New Order</span></div>
-        </div>
+      <div class="fp-visual-img">
+        <div class="fpv-img-header"><span class="fpv-img-header-icon">🔐</span><span class="fpv-img-header-text">Client Login Portal — Live</span></div>
+        <img src="https://media.licdn.com/dms/image/v2/D5612AQHXUrFi5WcCgw/article-inline_image-shrink_1000_1488/B56ZzwDuIYHkAQ-/0/1773554033694?e=1775088000&v=beta&t=nvCPMMx_ag38ZfkcpU_HrXXllchnWrH8KyLvqAGeEhs" alt="SupplySarthi Client Login Portal" loading="lazy">
       </div>
     </div>
 
@@ -981,14 +977,128 @@ footer {
           <li>Printable Account Ledger Statement for any client</li>
         </ul>
       </div>
-      <div class="fp-visual">
-        <div class="fpv-header"><span class="fpv-header-icon">📊</span><span class="fpv-header-text">Admin Dashboard</span></div>
-        <div class="fpv-body">
-          <div class="fpv-row"><span class="fpv-row-label">Today's Orders</span><span class="fpv-row-val green">24 orders</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Nov Revenue</span><span class="fpv-row-val green">₹2,42,000</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Total Outstanding</span><span class="fpv-row-val red">₹68,400</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Active Clients</span><span class="fpv-row-val">32</span></div>
-          <div class="fpv-row"><span class="fpv-row-label">Pending Deliveries</span><span class="fpv-row-val" style="color:var(--gold)">7 orders</span></div>
+      <div class="fp-visual-img">
+        <div class="fpv-img-header"><span class="fpv-img-header-icon">📊</span><span class="fpv-img-header-text">Client Dashboard — Live</span></div>
+        <img src="https://media.licdn.com/dms/image/v2/D5612AQGxxMXIdjI13Q/article-inline_image-shrink_1500_2232/B56ZzwBVvfHUAU-/0/1773553409964?e=1775088000&v=beta&t=gymhNkzDymKzo9xTgJdjd6fwrHCZpYlQ05rM2uXGwZU" alt="SupplySarthi Client Dashboard" loading="lazy">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ SCREENSHOT GALLERY ════════════════ -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="tag" style="margin-bottom:14px;background:rgba(255,255,255,0.08);color:#a8dbbe;border-color:rgba(255,255,255,0.12);">Real Product Screenshots</span>
+      <h2 class="section-title">Dekhte hain — sirf baatein nahi 👀</h2>
+      <p class="section-sub">Yeh sab actual SupplySarthi screens hain. Jo dikha raha hai, wahi milega — koi photoshop nahi, koi concept art nahi.</p>
+    </div>
+
+    <!-- Row 1: Admin + Client Dashboard — full width showcase -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;">
+      <div class="gallery-item">
+        <div class="gallery-frame">
+          <img src="https://media.licdn.com/dms/image/v2/D5612AQHkpZSolN04Nw/article-inline_image-shrink_1000_1488/B56ZzwA4dlJgAQ-/0/1773553289662?e=1775088000&v=beta&t=7zWW338lfXasD87MEwBmoKX0M1bfSiLQtK_VT3ueHt8" alt="SupplySarthi Admin Dashboard" loading="lazy">
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-icon">🏢</div>
+          <div>
+            <div class="gallery-caption-title">Admin Dashboard</div>
+            <div class="gallery-caption-sub">Orders, revenue, outstanding — ek screen pe</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-frame">
+          <img src="https://media.licdn.com/dms/image/v2/D5612AQGxxMXIdjI13Q/article-inline_image-shrink_1500_2232/B56ZzwBVvfHUAU-/0/1773553409964?e=1775088000&v=beta&t=gymhNkzDymKzo9xTgJdjd6fwrHCZpYlQ05rM2uXGwZU" alt="SupplySarthi Client Dashboard" loading="lazy">
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-icon">👤</div>
+          <div>
+            <div class="gallery-caption-title">Client Dashboard</div>
+            <div class="gallery-caption-sub">Client apna portal khud dekh sakta hai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: 3 equal columns -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:24px;">
+      <div class="gallery-item">
+        <div class="gallery-frame">
+          <img src="https://media.licdn.com/dms/image/v2/D5612AQECrQtItwCD0w/article-inline_image-shrink_1500_2232/B56ZzwC4H3JgAU-/0/1773553812488?e=1775088000&v=beta&t=51lPdxIC_tvOFwEQXe_c9t4ARAG5s3yV3t33dxuWk9c" alt="SupplySarthi Client Section" loading="lazy">
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-icon">👥</div>
+          <div>
+            <div class="gallery-caption-title">Client Management</div>
+            <div class="gallery-caption-sub">GSTIN, sites, balance — sab ek jagah</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-frame">
+          <img src="https://media.licdn.com/dms/image/v2/D5612AQGxuqJLkpIE_A/article-inline_image-shrink_1500_2232/B56ZzwDH30HMAU-/0/1773553877505?e=1775088000&v=beta&t=CgF6v7fLfWysZkecoyyy-U6vbZP_pS6eUM9DFPIRjgQ" alt="SupplySarthi Client Wise Pricing" loading="lazy">
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-icon">💲</div>
+          <div>
+            <div class="gallery-caption-title">Client-wise Pricing</div>
+            <div class="gallery-caption-sub">Har client ka alag rate — auto apply</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-frame">
+          <img src="https://media.licdn.com/dms/image/v2/D5612AQGZzyT0-V6AAw/article-inline_image-shrink_1500_2232/B56ZzwDeBqHoAU-/0/1773553967770?e=1775088000&v=beta&t=4SVqHEBFlZJKREKNmRnmhQiE2CuEad8LYupd1HrPoTs" alt="SupplySarthi Order Section" loading="lazy">
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-icon">🛒</div>
+          <div>
+            <div class="gallery-caption-title">Order Management</div>
+            <div class="gallery-caption-sub">Status tracking — Pending to Delivered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: 3 equal columns -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+      <div class="gallery-item">
+        <div class="gallery-frame">
+          <img src="https://media.licdn.com/dms/image/v2/D5612AQFr2KvwwoxHDg/article-inline_image-shrink_1000_1488/B56ZzwCYMVKYAQ-/0/1773553682150?e=1775088000&v=beta&t=rdZg5_oUfOK2-2KVXULL6d9GZ1UoCPKokCIfaE7kslU" alt="SupplySarthi Invoice Section" loading="lazy">
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-icon">🧾</div>
+          <div>
+            <div class="gallery-caption-title">GST Invoice</div>
+            <div class="gallery-caption-sub">One-click professional invoice</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-frame">
+          <img src="https://media.licdn.com/dms/image/v2/D5612AQFPqf65ymccZw/article-inline_image-shrink_1500_2232/B56ZzwCqCtH0AU-/0/1773553755210?e=1775088000&v=beta&t=i6NHpqgIxVHfTTsYMJmh7VDL9s8oRMZnUilkVQKa2dQ" alt="SupplySarthi Ledger Section" loading="lazy">
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-icon">💰</div>
+          <div>
+            <div class="gallery-caption-title">Account Ledger</div>
+            <div class="gallery-caption-sub">CA-style running balance — real-time</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-frame">
+          <img src="https://media.licdn.com/dms/image/v2/D5612AQHXUrFi5WcCgw/article-inline_image-shrink_1000_1488/B56ZzwDuIYHkAQ-/0/1773554033694?e=1775088000&v=beta&t=nvCPMMx_ag38ZfkcpU_HrXXllchnWrH8KyLvqAGeEhs" alt="SupplySarthi Client Login Portal" loading="lazy">
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-icon">🔐</div>
+          <div>
+            <div class="gallery-caption-title">Client Login Portal</div>
+            <div class="gallery-caption-sub">Secure portal — har client ka apna login</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1684,7 +1794,7 @@ footer {
         <div class="footer-col-title">Get in Touch</div>
         <ul class="footer-links">
           <li><a href="https://wa.me/918851666208" target="_blank">📱 +91-8851666208</a></li>
-          <li><a href="mailto:suraj.gasdeveloper@gmail.com">✉️ Mail Me</a></li>
+          <li><a href="mailto:suraj@surajdx.com">✉️ suraj@surajdx.com</a></li>
           <li><a href="https://surajdx.com" target="_blank">🌐 surajdx.com</a></li>
           <li><a href="#" style="cursor:default;">📍 Noida, India</a></li>
         </ul>
