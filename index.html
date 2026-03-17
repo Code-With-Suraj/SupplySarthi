@@ -326,6 +326,63 @@ nav {
   color: var(--muted); opacity: 0.55;
 }
 
+/* ─── TUTORIAL ───────────────────────────────────── */
+.tutorial-section { padding: 88px 0; }
+.tutorial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 42px;
+  align-items: center;
+}
+.tutorial-highlights { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 22px; }
+.tutorial-highlights li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--ink); }
+.th-dot {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--g6); border: 2px solid var(--g4);
+  flex-shrink: 0; margin-top: 3px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%232d8a54' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: center;
+  background-size: 10px;
+}
+.tutorial-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+.tutorial-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.tutorial-card-header {
+  background: var(--g6);
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.tutorial-card-title {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 800;
+  color: var(--g2);
+}
+.tutorial-card-title span { font-size: 15px; }
+.tutorial-card-link {
+  font-size: 12px; font-weight: 600; color: var(--g2);
+  padding: 6px 10px; border-radius: 10px;
+  border: 1px solid var(--g5);
+  background: rgba(255,255,255,0.7);
+  transition: background 0.2s;
+}
+.tutorial-card-link:hover { background: var(--white); }
+.video-frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #000;
+}
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
 /* ─── PROBLEM ────────────────────────────────────── */
 .problem-section { padding: 80px 0; background: var(--white); }
 .problem-grid {
@@ -656,6 +713,7 @@ footer {
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; gap: 40px; }
   .hero-visual { display: none; }
+  .tutorial-grid { grid-template-columns: 1fr; }
   .problem-grid { grid-template-columns: 1fr 1fr; }
   .feature-panel.active { grid-template-columns: 1fr; }
   .fp-visual { display: none; }
@@ -714,6 +772,7 @@ footer {
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#features">Features</a></li>
+        <li><a href="#tutorial">Tutorial</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#compare">Compare</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -793,6 +852,47 @@ footer {
     </div>
   </div>
 </div>
+
+<!-- ═══════════════════════════════ TUTORIAL ══════════════════════════ -->
+<section class="tutorial-section" id="tutorial">
+  <div class="container">
+    <div class="tutorial-grid">
+      <div>
+        <div class="section-header" style="margin-bottom:0;">
+          <span class="tag" style="margin-bottom:14px;">Tutorial Video</span>
+          <h2 class="section-title">SupplySarthi ka complete walkthrough</h2>
+          <p class="section-sub">Orders se leke GST invoices, ledger aur client portal tak — poora flow ek video mein dekho.</p>
+        </div>
+        <ul class="tutorial-highlights">
+          <li><span class="th-dot"></span>System ka overview — screens aur workflow clear</li>
+          <li><span class="th-dot"></span>Orders, delivery challan aur invoice generation demo</li>
+          <li><span class="th-dot"></span>Ledger, outstanding aur client portal ka practical use</li>
+        </ul>
+        <div class="tutorial-actions">
+          <a href="#pricing" class="btn btn-primary">Get SupplySarthi →</a>
+          <a href="https://youtu.be/Kg8IpcGw1I8" target="_blank" rel="noopener" class="btn btn-outline">Watch on YouTube</a>
+        </div>
+      </div>
+
+      <div class="tutorial-card">
+        <div class="tutorial-card-header">
+          <div class="tutorial-card-title"><span>▶</span> SupplySarthi Tutorial</div>
+          <a class="tutorial-card-link" href="https://youtu.be/Kg8IpcGw1I8" target="_blank" rel="noopener">Open</a>
+        </div>
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/Kg8IpcGw1I8?rel=0"
+            title="SupplySarthi Tutorial Walkthrough"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ═══════════════════════════════ PROBLEM ═══════════════════════════ -->
 <section class="problem-section">
