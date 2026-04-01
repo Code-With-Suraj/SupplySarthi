@@ -2952,6 +2952,74 @@
         padding: 32px 20px;
       }
     }
+
+    /* HISAABSARTHI SECTION */
+    .hisaab-section {
+      padding: 96px 0;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .hisaab-section::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240, 165, 0, 0.08) 0%, transparent 70%);
+      top: -100px;
+      right: -200px;
+      pointer-events: none;
+    }
+    .hisaab-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 32px;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+    .hisaab-card.bad::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--red);
+    }
+    .hisaab-card.good::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--gold);
+    }
+    .hisaab-impact {
+      background: var(--g0);
+      border-radius: var(--r-xl);
+      padding: 48px;
+      margin-top: 80px;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(240,165,0,0.2);
+    }
+    .hisaab-impact::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(240, 165, 0, 0.12) 0%, transparent 70%);
+      bottom: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+    @media (max-width: 600px) {
+      .hisaab-impact {
+        padding: 32px 20px;
+      }
+    }
   </style>
 </head>
 
@@ -3851,6 +3919,145 @@
     </div>
   </section>
 
+  <!-- HISAABSARTHI SECTION -->
+  <section class="hisaab-section" id="hisaabsarthi">
+    <div class="container">
+      <div class="section-header centered">
+        <span class="tag" style="margin-bottom:14px;background:rgba(240,165,0,0.1);color:var(--gold);border-color:rgba(240,165,0,0.25);">🎁 Free with SupplySarthi</span>
+        <h2 class="section-title">💰 HisaabSarthi — Accounting & Recovery</h2>
+        <p class="section-sub">“Sirf order manage nahi — ab poora hisaab bhi control mein”</p>
+      </div>
+
+      <div class="issue-grid">
+        <div class="hisaab-card bad">
+          <div class="issue-card-title">😵 PROBLEM (Reality Check)</div>
+          <p class="sf-desc" style="margin-bottom:16px;">Aaj bhi kya ho raha hai?</p>
+          <ul class="issue-bad-list">
+            <li>Accounting alag software mein</li>
+            <li>Orders aur invoices alag jagah</li>
+            <li>Excel + WhatsApp + register = full mess</li>
+            <li>Payment follow-up manual</li>
+            <li>End of month = stress + confusion</li>
+          </ul>
+          <div class="issue-result bad">👉 Result? Paisa atakta hai, data mismatch hota hai, owner full manual check karta hai.</div>
+        </div>
+
+        <div class="hisaab-card good">
+          <div class="issue-card-title">⚡ SOLUTION (Combo Offer)</div>
+          <p class="sf-desc" style="margin-bottom:16px;">SupplySarthi + HisaabSarthi = Fully connected system</p>
+          <ul class="issue-good-list">
+            <li>Orders → SupplySarthi</li>
+            <li>Invoices → Auto generate</li>
+            <li>Accounting → HisaabSarthi handle karega</li>
+            <li>Payments → Real-time track</li>
+            <li>Outstanding → Always visible</li>
+          </ul>
+          <div class="issue-result good" style="color:var(--gold);">👉 Dono software ek saath kaam karte hain — fully connected!</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:80px;">
+        <h3 class="sf-title">🧠 HOW IT WORKS (Simple Flow)</h3>
+        <p class="sf-desc" style="margin:0 auto 40px;max-width:500px;">No double entry. No confusion.</p>
+      </div>
+      <div class="how-it-works-grid">
+        <div class="hiw-card">
+          <div class="hiw-step-num">1</div>
+          <div class="hiw-card-title">Order Place & Deliver</div>
+          <div class="hiw-card-text">SupplySarthi se order fulfill karo</div>
+        </div>
+        <div class="hiw-card">
+          <div class="hiw-step-num">2</div>
+          <div class="hiw-card-title">Generate Invoice</div>
+          <div class="hiw-card-text">One click se invoice generate</div>
+        </div>
+        <div class="hiw-card">
+          <div class="hiw-step-num">3</div>
+          <div class="hiw-card-title">Auto Sync Data</div>
+          <div class="hiw-card-text">Data automatically HisaabSarthi mein</div>
+        </div>
+        <div class="hiw-card">
+          <div class="hiw-step-num">4</div>
+          <div class="hiw-card-title">Ledger Update</div>
+          <div class="hiw-card-text">Har client ka ledger automatic update</div>
+        </div>
+        <div class="hiw-card">
+          <div class="hiw-step-num">5</div>
+          <div class="hiw-card-title">Payment Entry</div>
+          <div class="hiw-card-text">Payment aane pe entry auto-adjust ho jayegi</div>
+        </div>
+        <div class="hiw-card">
+          <div class="hiw-step-num">6</div>
+          <div class="hiw-card-title">Live Outstanding</div>
+          <div class="hiw-card-text">Har waqt live outstanding screen pe</div>
+        </div>
+      </div>
+
+      <div class="issue-features">
+        <h3 class="sf-title" style="text-align:center;">💎 KEY FEATURES</h3>
+        <div class="if-grid">
+          <div class="if-card">
+            <div class="if-icon">📊</div>
+            <div>
+              <div class="if-title">CA-Style Ledger System</div>
+              <div class="if-text">Har client ka running balance — clean & professional.</div>
+            </div>
+          </div>
+          <div class="if-card">
+            <div class="if-icon">💰</div>
+            <div>
+              <div class="if-title">Outstanding Dashboard</div>
+              <div class="if-text">Kiska kitna paisa baaki — ek screen pe clear.</div>
+            </div>
+          </div>
+          <div class="if-card">
+            <div class="if-icon">🧾</div>
+            <div>
+              <div class="if-title">Invoice to Accounting Sync</div>
+              <div class="if-text">SupplySarthi se direct data — manual entry zero.</div>
+            </div>
+          </div>
+          <div class="if-card">
+            <div class="if-icon">🔄</div>
+            <div>
+              <div class="if-title">Smart Payment Adjustment</div>
+              <div class="if-text">Full, partial, advance — sab auto adjust.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hisaab-impact">
+        <h3 class="impact-title" style="color:var(--gold);">🚀 IMPACT AFTER USING THIS</h3>
+        <div class="impact-list">
+          <div class="impact-item">✔ Payment recovery fast</div>
+          <div class="impact-item">✔ Outstanding control mein</div>
+          <div class="impact-item">✔ Cashflow improve</div>
+          <div class="impact-item">✔ Accounting clean</div>
+          <div class="impact-item">✔ Owner ka stress kam</div>
+        </div>
+        <div class="hook-text">“Ab paisa track karna kaam nahi — system ka kaam hai”</div>
+        
+        <div style="margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.1);">
+          <div style="display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;background:var(--gold);color:var(--g0);padding:5px 14px;border-radius:100px;margin-bottom:16px;">
+            🎁 WHY THIS IS A BIG DEAL
+          </div>
+          <p style="font-size:16px;color:rgba(255,255,255,0.8);max-width:600px;margin:0 auto 24px;line-height:1.7;">
+            Normally: Order system alag aur Accounting software alag hota hai (aur dono ka cost alag). 
+            <br><strong style="color:var(--gold);">But yaha: SupplySarthi + HisaabSarthi = Ek complete business system.</strong>
+          </p>
+          <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:32px;">
+            <div style="font-weight:700;font-size:18px;">💥 Double Value</div>
+            <div style="font-weight:700;font-size:18px;color:var(--gold);">💥 Zero Extra Cost</div>
+          </div>
+          <a href="#pricing" class="btn btn-gold" style="padding:16px 32px;font-size:16px;">Claim Your FREE HisaabSarthi Now 👇</a>
+          <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:16px;">“Order se leke payment tak — ab sab system handle karega”</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section class="pricing-section" id="pricing">
     <div class="container">
@@ -4330,7 +4537,8 @@
           <p class="early-founder-msg">Maine SupplySarthi is liye banaya kyunki maine khud dekha hai ki Indian suppliers
             kitni mehnat karte hain — aur phir bhi WhatsApp, register, aur Excel ke beech ulajhe rehte hain. <strong>Yeh
               system unhi ke liye hai.</strong> Pehle client ke saath main khud bethke sab setup karunga. Koi sales
-            pitch nahi — sirf kaam ki baat.</p>
+            pitch nahi — sirf kaam ki baat.<br><br>
+            <strong>Mere software kyu alag hai?</strong> Kyuki mere software Google Sheet mein chalte hai, kabhi bhi backup le sakte hai, expensive nahi hai baaki market mein available software ke jaise, aur training ki koi need nahi hoti kyunki mere software koi 10 saal ka baccha bhi chala sakta hai.</p>
           <div class="early-founder">
             <div class="early-founder-avatar">S</div>
             <div>
